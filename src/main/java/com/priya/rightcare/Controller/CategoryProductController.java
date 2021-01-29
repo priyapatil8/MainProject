@@ -1,8 +1,8 @@
 package com.priya.rightcare.Controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +19,7 @@ import com.priya.rightcare.Repository.CategoryRepository;
 import com.priya.rightcare.Service.CategoryService;
 import com.priya.rightcare.Service.ProductService;
 
+@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1")
 public class CategoryProductController {
@@ -38,17 +39,11 @@ public class CategoryProductController {
 		return categoryService.saveCategories(categories);
 	}
 
-	// get all categories
+	// get all categories with all products 
 	@GetMapping("/getCategories")
 	public List<Category> findAllCategories() {
 
 		return categoryService.getCategories();
-
-	}
-
-	@GetMapping("/Getcategory/{id}")
-	public Category findById(@PathVariable  int CategoryId){
-		return  categoryService.getById(CategoryId);
 
 	}
 
@@ -68,7 +63,8 @@ public class CategoryProductController {
 	public List<Product> findAllProducts1() {
 		return service.getProducts();
 	}
-
+	
+	
 	// add category with products(one or more products)
 	@PostMapping("/input")
 	public Category input(@RequestBody InputRequest request) {
@@ -82,6 +78,7 @@ public class CategoryProductController {
 
 		return categoryRepository.findAll();
 	}
+	
 
 	// get category name with product name
 	@GetMapping("/getInformation")
@@ -90,6 +87,21 @@ public class CategoryProductController {
 		return categoryRepository.getInfo();
 	}
 	
-	
-
+    @GetMapping("/getproducts{name}")
+	public List<Product> findCategoryByName(@PathVariable String name) {
+		
+		return service.findAll();
+		
+	}
+	@GetMapping("/fetchallproducts/{categoryId}")
+    public List<Product> findCategoryById(@PathVariable int categoryId) {
+		
+		return service.getProducts();
+		
+	}
+	@GetMapping("/fetchallcategories/{categoryId}")
+	public List<Category> findById(@PathVariable int categoryId){
+		
+		return categoryRepository.findAll();
+	}
 }

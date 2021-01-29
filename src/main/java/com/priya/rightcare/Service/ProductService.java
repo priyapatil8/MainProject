@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.priya.rightcare.Entity.Category;
 import com.priya.rightcare.Entity.Product;
 import com.priya.rightcare.Repository.ProductRepository;
 
@@ -27,7 +27,7 @@ public class ProductService {
         return productRepository.getByProductName(productName);
     }
 
-    public Iterable<Product> findAll() {
+    public List<Product> findAll() {
         return productRepository.findAll();
     }
     public List<Product> getProducts() {
@@ -39,6 +39,14 @@ public class ProductService {
 		// TODO Auto-generated method stub
 		return productRepository.saveAll(products);
 	}
+
+	public Product getById(int productId) {
+		// TODO Auto-generated method stub
+		return productRepository.getByProductId(productId);
+	}
+
+	
+	
 
 
 }

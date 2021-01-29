@@ -20,9 +20,9 @@ import lombok.NoArgsConstructor;
 public class CustomerOrderResponse {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int OrderId;
-
-	@Column(name = "customer_id")
+	private int orderId;
+	
+	@Column(name="customer_id")
 	private int customerId;
 
 	@Column(name = "product_name")
@@ -39,16 +39,13 @@ public class CustomerOrderResponse {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CustomerOrderResponse( int customerId, String productName, double productPrice,
-			int quantity) {
+	public CustomerOrderResponse(int customerId, String productName, double productPrice, int quantity) {
 		super();
-		
 		this.customerId = customerId;
 		this.productName = productName;
 		this.productPrice = productPrice;
 		this.quantity = quantity;
 	}
-
 
 	public int getCustomerId() {
 		return customerId;
@@ -82,4 +79,5 @@ public class CustomerOrderResponse {
 		this.quantity = quantity;
 	}
 
+	
 }

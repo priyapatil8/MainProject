@@ -22,8 +22,7 @@ import lombok.ToString;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
-	private int productId;
+    private int productId;
 
 	@Column(name = "product_name")
 	private String productName;
@@ -39,68 +38,82 @@ public class Product {
 
 	@Column(name = "image")
 	private String image;
-
-	public Product() {
+	
+	@Column(name="category_id")
+	private int categoryId;
+	
+   public Product() {
 
 	}
 
-	public Product(int productId, String productName, double productPrice, String description, int quantity,
-			String image) {
-		super();
-		this.productId = productId;
-		this.productName = productName;
-		this.productPrice = productPrice;
-		this.description = description;
-		this.quantity = quantity;
-		this.image = image;
-	}
+public Product(int productId, String productName, double productPrice, String description, int quantity, String image,
+		int categoryId) {
+	super();
+	this.productId = productId;
+	this.productName = productName;
+	this.productPrice = productPrice;
+	this.description = description;
+	this.quantity = quantity;
+	this.image = image;
+	this.categoryId = categoryId;
+}
 
-	public int getProductId() {
-		return productId;
-	}
+public int getProductId() {
+	return productId;
+}
 
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
+public void setProductId(int productId) {
+	this.productId = productId;
+}
 
-	public String getProductName() {
-		return productName;
-	}
+public String getProductName() {
+	return productName;
+}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
+public void setProductName(String productName) {
+	this.productName = productName;
+}
 
-	public double getProductPrice() {
-		return productPrice;
-	}
+public double getProductPrice() {
+	return productPrice;
+}
 
-	public void setProductPrice(double productPrice) {
-		this.productPrice = productPrice;
-	}
+public void setProductPrice(double productPrice) {
+	this.productPrice = productPrice;
+}
 
-	public String getDescription() {
-		return description;
-	}
+public String getDescription() {
+	return description;
+}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+public void setDescription(String description) {
+	this.description = description;
+}
 
-	public int getQuantity() {
-		return quantity;
-	}
+public int getQuantity() {
+	return quantity;
+}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+public void setQuantity(int quantity) {
+	this.quantity = quantity;
+}
 
-	public String getImage() {
-		return image;
-	}
+public String getImage() {
+	return image;
+}
 
-	public void setImage(String image) {
-		this.image = image;
-	}
+public void setImage(String image) {
+	this.image = image;
+}
+
+public int getCategoryId() {
+	return categoryId;
+}
+
+public void setCategoryId(int categoryId) {
+	this.categoryId = categoryId;
+}
+
+	
 
 }

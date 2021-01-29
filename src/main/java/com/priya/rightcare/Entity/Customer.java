@@ -46,11 +46,10 @@ public class Customer {
 	@Column(name = "zipcode")
 	private long zipCode;
 
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "customer_primarykey", referencedColumnName = "customer_id")
 	private List<Product> products;
-	
-	
 
 	public Customer() {
 		super();
@@ -68,7 +67,6 @@ public class Customer {
 		this.address = address;
 		this.zipCode = zipCode;
 		this.products = products;
-		
 	}
 
 	public int getCustomerId() {
@@ -135,6 +133,5 @@ public class Customer {
 		this.products = products;
 	}
 
-	
 	
 }

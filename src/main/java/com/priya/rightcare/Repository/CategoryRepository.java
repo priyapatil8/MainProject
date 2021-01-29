@@ -15,16 +15,17 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
 	@Query("SELECT new com.priya.rightcare.DTO.OutputResponse (c.name , p.productName) FROM Category c JOIN c.products p")
 	public List<OutputResponse> getInfo();
 
-	public Category getByCategoryId(int categoryId);
-
-
-
-
-	//public Category getByName(String name);
-
-	public Category findById(int categoryId);
+	
+   
 
 	public Category findByName(String name);
+
+
+    public List<Category> findById(int categoryId);
+
+	
+
+
 
 	//public Category getCategoryById(int categoryId);
 

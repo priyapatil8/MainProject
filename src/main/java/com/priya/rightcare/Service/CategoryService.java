@@ -1,6 +1,7 @@
 package com.priya.rightcare.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,12 +19,8 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    public Category findCategoryById(int categoryId) {
-        return categoryRepository.getByCategoryId(categoryId);
-    }
-    
 
-    public Iterable<Category> findAll() {
+    public List<Category> findAll() {
         return categoryRepository.findAll();
     }
 
@@ -40,17 +37,19 @@ public class CategoryService {
 		
 	}
 
-	public Category getById(int categoryId) {
+	 public Category getByName(String name) {
+		
+		return categoryRepository.findByName(name);
+	}
+
+
+	public List<Category> getById(int categoryId) {
 		// TODO Auto-generated method stub
 		return categoryRepository.findById(categoryId);
 	}
 
 
-	public Category getByName(String name) {
-		// TODO Auto-generated method stub
-		return categoryRepository.findByName(name);
-	}
-
+	
 	
 	
 	

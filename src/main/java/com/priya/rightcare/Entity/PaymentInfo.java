@@ -51,7 +51,6 @@ public class PaymentInfo {
 	@OneToOne
 	@JoinColumn(name = "customerId_fk", referencedColumnName = "customer_id")
 	private Customer customer;
-
 	
 	public PaymentInfo() {
 		super();
@@ -68,7 +67,7 @@ public class PaymentInfo {
 		this.expiryDate = expiryDate;
 		this.cvv = cvv;
 		this.paymentAmount = paymentAmount;
-		
+		this.customer = customer;
 	}
 
 	public int getPaymentId() {
@@ -125,6 +124,14 @@ public class PaymentInfo {
 
 	public void setPaymentAmount(double paymentAmount) {
 		this.paymentAmount = paymentAmount;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	

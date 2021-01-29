@@ -26,20 +26,22 @@ import lombok.ToString;
 @Table(name = "categories")
 public class Category {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int categoryId;
 
-	@Column(name = "category_name")
+	@Column(name="category_name")
 	private String name;
-
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "categoryp_fk", referencedColumnName = "categoryId")
 	private List<Product> products;
 
+	
 	public Category() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 
 	public Category(int categoryId, String name, List<Product> products) {
 		super();
@@ -48,28 +50,36 @@ public class Category {
 		this.products = products;
 	}
 
+
 	public int getCategoryId() {
 		return categoryId;
 	}
+
 
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
 
+
 	public String getName() {
 		return name;
 	}
+
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
+
 	public List<Product> getProducts() {
 		return products;
 	}
+
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
 
+	
+	
 }

@@ -24,8 +24,17 @@ public class CustomerService {
 	}
 
 	public Customer getById(int customerId) {
-		// TODO Auto-generated method stub
+	
 		return customerRepository.findById(customerId);
+	}
+  public Customer saveCustomer(Customer  customer) {
+		
+		return customerRepository.save(customer);
+		
+	}
+	public Customer fetchCustomerByEmailId(String emailId) {
+		
+		return customerRepository.findByEmailId(emailId);
 	}
 
 }

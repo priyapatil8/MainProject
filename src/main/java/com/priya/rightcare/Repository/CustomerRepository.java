@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.priya.rightcare.DTO.CustomerOrderResponse;
 
+//import com.priya.rightcare.DTO.CustomerOrderResponse;
+
 import com.priya.rightcare.Entity.Customer;
 import com.priya.rightcare.Entity.PaymentInfo;
 
@@ -22,5 +24,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 	public Customer findByfirstName(String firstName);
 
 	public PaymentInfo save(PaymentInfo paymentInfo);
+    
+	
+	public Customer findByEmailId(String emailId);
 
 }
